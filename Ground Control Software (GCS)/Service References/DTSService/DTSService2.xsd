@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/RCCFLib.Records" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/RCCFLib.Records" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://service.redskiestechnology.com/DTSService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfRecordingSet">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RecordingSet" nillable="true" type="tns:RecordingSet" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRecordingSet" nillable="true" type="tns:ArrayOfRecordingSet" />
+  <xs:complexType name="RecordingSet">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="RecordingRunId" type="ser:guid" />
+      <xs:element minOccurs="0" name="RecordingSetDateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="RecordingSetId" type="xs:int" />
+      <xs:element minOccurs="0" name="Recordings" nillable="true" type="tns:ArrayOfRecording" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RecordingSet" nillable="true" type="tns:RecordingSet" />
+  <xs:complexType name="ArrayOfRecording">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Recording" nillable="true" type="tns:Recording" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRecording" nillable="true" type="tns:ArrayOfRecording" />
+  <xs:complexType name="Recording">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Key" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" type="tns:ValueType" />
+      <xs:element minOccurs="0" name="Value" nillable="true" type="xs:anyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Recording" nillable="true" type="tns:Recording" />
+  <xs:simpleType name="ValueType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="String">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Integer">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Float">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="DateTime">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ValueType" nillable="true" type="tns:ValueType" />
+</xs:schema>

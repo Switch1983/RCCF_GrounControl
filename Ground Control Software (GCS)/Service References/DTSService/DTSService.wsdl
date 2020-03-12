@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DTSService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://service.redskiestechnology.com/DTSService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://service.redskiestechnology.com/DTSService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://service.redskiestechnology.com/DTSService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/RCCFLib.Records" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IDTSService_GetRecordingSetSeries_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecordingSetSeries" />
+  </wsdl:message>
+  <wsdl:message name="IDTSService_GetRecordingSetSeries_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecordingSetSeriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDTSService_GetRecordingSetSeriesFrom_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecordingSetSeriesFrom" />
+  </wsdl:message>
+  <wsdl:message name="IDTSService_GetRecordingSetSeriesFrom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecordingSetSeriesFromResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDTSService_GetRecordingSetSeriesFromTo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecordingSetSeriesFromTo" />
+  </wsdl:message>
+  <wsdl:message name="IDTSService_GetRecordingSetSeriesFromTo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRecordingSetSeriesFromToResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDTSService_GetLatestReading_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLatestReading" />
+  </wsdl:message>
+  <wsdl:message name="IDTSService_GetLatestReading_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLatestReadingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDTSService_AddRecordingSet_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddRecordingSet" />
+  </wsdl:message>
+  <wsdl:message name="IDTSService_AddRecordingSet_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddRecordingSetResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IDTSService">
+    <wsdl:operation name="GetRecordingSetSeries">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDTSService/GetRecordingSetSeries" message="tns:IDTSService_GetRecordingSetSeries_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDTSService/GetRecordingSetSeriesResponse" message="tns:IDTSService_GetRecordingSetSeries_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRecordingSetSeriesFrom">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDTSService/GetRecordingSetSeriesFrom" message="tns:IDTSService_GetRecordingSetSeriesFrom_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDTSService/GetRecordingSetSeriesFromResponse" message="tns:IDTSService_GetRecordingSetSeriesFrom_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRecordingSetSeriesFromTo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDTSService/GetRecordingSetSeriesFromTo" message="tns:IDTSService_GetRecordingSetSeriesFromTo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDTSService/GetRecordingSetSeriesFromToResponse" message="tns:IDTSService_GetRecordingSetSeriesFromTo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestReading">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDTSService/GetLatestReading" message="tns:IDTSService_GetLatestReading_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDTSService/GetLatestReadingResponse" message="tns:IDTSService_GetLatestReading_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddRecordingSet">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDTSService/AddRecordingSet" message="tns:IDTSService_AddRecordingSet_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDTSService/AddRecordingSetResponse" message="tns:IDTSService_AddRecordingSet_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IDTSService" type="tns:IDTSService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetRecordingSetSeries">
+      <soap:operation soapAction="http://tempuri.org/IDTSService/GetRecordingSetSeries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecordingSetSeriesFrom">
+      <soap:operation soapAction="http://tempuri.org/IDTSService/GetRecordingSetSeriesFrom" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRecordingSetSeriesFromTo">
+      <soap:operation soapAction="http://tempuri.org/IDTSService/GetRecordingSetSeriesFromTo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestReading">
+      <soap:operation soapAction="http://tempuri.org/IDTSService/GetLatestReading" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddRecordingSet">
+      <soap:operation soapAction="http://tempuri.org/IDTSService/AddRecordingSet" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DTSService">
+    <wsdl:port name="BasicHttpBinding_IDTSService" binding="tns:BasicHttpBinding_IDTSService">
+      <soap:address location="http://service.redskiestechnology.com/DTSService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

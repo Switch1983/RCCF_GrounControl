@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://service.redskiestechnology.com/DTSService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/RCCFLib.Records" />
+  <xs:element name="GetRecordingSetSeries">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="recordingSetId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRecordingSetSeriesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/RCCFLib.Records" minOccurs="0" name="GetRecordingSetSeriesResult" nillable="true" type="q1:ArrayOfRecordingSet" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRecordingSetSeriesFrom">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="recordingSetId" type="xs:int" />
+        <xs:element minOccurs="0" name="fromDateTime" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRecordingSetSeriesFromResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/RCCFLib.Records" minOccurs="0" name="GetRecordingSetSeriesFromResult" nillable="true" type="q2:ArrayOfRecordingSet" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRecordingSetSeriesFromTo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="recordingSetId" type="xs:int" />
+        <xs:element minOccurs="0" name="fromDateTime" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="toDateTime" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetRecordingSetSeriesFromToResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/RCCFLib.Records" minOccurs="0" name="GetRecordingSetSeriesFromToResult" nillable="true" type="q3:ArrayOfRecordingSet" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLatestReading">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="recordingSetId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLatestReadingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/RCCFLib.Records" minOccurs="0" name="GetLatestReadingResult" nillable="true" type="q4:RecordingSet" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddRecordingSet">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/RCCFLib.Records" minOccurs="0" name="recordingSet" nillable="true" type="q5:RecordingSet" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddRecordingSetResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
